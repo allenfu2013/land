@@ -56,13 +56,13 @@
 		</encoder>
 	</appender>
 
-	<logger name="org" level="ERROR" additivity="false">
+	<!-- <logger name="org" level="ERROR" additivity="false">
 		<appender-ref ref="ERRORFILE" />
 	</logger>
 	
 	<logger name="com.opensymphony.xwork2" level="ERROR" additivity="false">
 		<appender-ref ref="ERRORFILE" />
-	</logger>
+	</logger> -->
 
 	<root level="DEBUG">
 		<appender-ref ref="STDOUT" />

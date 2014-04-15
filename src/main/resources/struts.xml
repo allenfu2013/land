@@ -11,10 +11,10 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	
 	<package name="websample" extends="struts-default">
-		<global-results>
+		<!-- <global-results>
 			<result name="error">/error.jsp</result>
 			<result name="input">/error.jsp</result>
-		</global-results>
+		</global-results> -->
 		
 		<global-exception-mappings>
 			<exception-mapping result="error" exception="java.lang.Throwable"/>

@@ -1,9 +1,14 @@
 package com.datayes.websample.domain;
 
+import java.util.Date;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -11,27 +16,24 @@ import javax.persistence.Table;
 public class Account {
 	@Id
 	@GeneratedValue
-	@Column(name = "ID", nullable = false, unique = true)
-	private Long id;
+	@Column(name = "ACCOUNT_ID", nullable = false, unique = true)
+	private Long accountId;
 
-	@Column(name = "ACCOUNT_NAME", nullable = false)
+	@Column(name = "ACCOUNT_NAME", nullable = false, unique = true)
 	private String accountName;
 
-	@Column(name = "ACCOUNT_SIGN")
-	private String accountSign;
+	@Column(name = "CREATE_TIME", nullable = false)
+	private Date createTime = new Date();
 
-	@Column(name = "ACCOUNT_EMAIL", nullable = false)
-	private String accountEmail;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "account")
+	private Set<AccountRole> accountRoles;
 
-	@Column(name = "ACCOUNT_PWD", nullable = false)
-	private String accountPwd;
-
-	public Long getId() {
-		return id;
+	public Long getAccountId() {
+		return accountId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setAccountId(Long accountId) {
+		this.accountId = accountId;
 	}
 
 	public String getAccountName() {
@@ -42,28 +44,20 @@ public class Account {
 		this.accountName = accountName;
 	}
 
-	public String getAccountSign() {
-		return accountSign;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setAccountSign(String accountSign) {
-		this.accountSign = accountSign;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
-	public String getAccountEmail() {
-		return accountEmail;
+	public Set<AccountRole> getAccountRoles() {
+		return accountRoles;
 	}
 
-	public void setAccountEmail(String accountEmail) {
-		this.accountEmail = accountEmail;
-	}
-
-	public String getAccountPwd() {
-		return accountPwd;
-	}
-
-	public void setAccountPwd(String accountPwd) {
-		this.accountPwd = accountPwd;
+	public void setAccountRoles(Set<AccountRole> accountRoles) {
+		this.accountRoles = accountRoles;
 	}
 
 }
