@@ -67,4 +67,21 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true" />
+	
+	<!-- 创建SqlSessionFactory，同时指定数据源-->
+	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="com.datayes.macro.domain" /> 
+	</bean>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.datayes.macro.mapper" />
+	</bean> -->
+	
+	<!-- 事务管理器 -->  
+    <!-- <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean>
+    
+    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true" /> -->
 </beans>
