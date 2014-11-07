@@ -52,4 +52,10 @@ public class SampleServiceImpl implements SampleService {
 		sampleService.batchInsertSample(sample3, sample4, sample5);
 	}
 
+	@Override
+	public String aspectTest(String text) {
+		System.out.println("in aspectTest");
+		return text;
+	}
+
 }

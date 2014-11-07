@@ -6,4 +6,6 @@ public interface SampleService {
 	void insertSample(Sample sample);
 	
 	void batchInsertSample(Sample... samples);
+	
+	String aspectTest(String text);
 }
