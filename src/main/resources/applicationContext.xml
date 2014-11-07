@@ -36,7 +36,7 @@
 	    <property name="testConnectionOnCheckout" value="false" />
 	</bean>
 	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties">
 			<props>
@@ -57,31 +57,29 @@
 	    		<value>com.datayes.websample.domain.AccountRole</value>
 	    		<value>com.datayes.websample.domain.Permission</value>
 	    		<value>com.datayes.websample.domain.RolePermission</value>
+	    		<value>com.datayes.websample.domain.Sample</value>
 	    	</list>
     	</property>
-	</bean>
+	</bean> -->
+	
+	<bean id="sampleService" class="com.datayes.websample.service.impl.SampleServiceImpl"></bean>
 	
 	<!-- 对事务进行管理 -->
-	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<!-- <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true" />
+	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true" /> -->
 	
 	<!-- 创建SqlSessionFactory，同时指定数据源-->
-	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.datayes.macro.domain" /> 
 	</bean>
 	
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.datayes.macro.mapper" />
-	</bean> -->
-	
-	<!-- 事务管理器 -->  
-    <!-- <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
     </bean>
     
-    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true" /> -->
+    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true" />
 </beans>

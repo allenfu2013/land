@@ -1,5 +1,6 @@
 package com.datayes.websample.action;
 
+import java.util.Date;
 import java.util.Set;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -52,6 +53,11 @@ public class IndexAction extends ActionSupport {
 	@Action(value="/page1", results={@Result(name="result1",location="/WEB-INF/jsp/page1.jsp")})
 	@SkipValidation
 	public String page1() {
+		Account account = new Account();
+		account.setAccountId(1L);
+//		account.setAccountName("hope");
+		account.setCreateTime(new Date());
+		accountDAO.saveOrUpdate(account);
 		/*Account account = new Account();
 		account.setAccountName("hope");
 		accountDAO.saveOrUpdate(account);
@@ -65,12 +71,12 @@ public class IndexAction extends ActionSupport {
 		accountRole.setRole(role);
 		accountRoleDAO.saveOrUpdate(accountRole);*/
 		
-		Account account = accountDAO.findById(1L);
-		Set<AccountRole> accountRoles = account.getAccountRoles();
-		for (AccountRole accountRole : accountRoles) {
-			String roleName = accountRole.getRole().getRoleName();
-			System.out.println(roleName);
-		}
+//		Account account = accountDAO.findById(1L);
+//		Set<AccountRole> accountRoles = account.getAccountRoles();
+//		for (AccountRole accountRole : accountRoles) {
+//			String roleName = accountRole.getRole().getRoleName();
+//			System.out.println(roleName);
+//		}
 		return "result1";
 	}
 

@@ -16,10 +16,10 @@ import javax.persistence.Table;
 public class Account {
 	@Id
 	@GeneratedValue
-	@Column(name = "ACCOUNT_ID", nullable = false, unique = true)
+	@Column(name = "ACCOUNT_ID", unique = true)
 	private Long accountId;
 
-	@Column(name = "ACCOUNT_NAME", nullable = false, unique = true)
+	@Column(name = "ACCOUNT_NAME")
 	private String accountName;
 
 	@Column(name = "CREATE_TIME", nullable = false)
@@ -59,5 +59,5 @@ public class Account {
 	public void setAccountRoles(Set<AccountRole> accountRoles) {
 		this.accountRoles = accountRoles;
 	}
-
+	
 }
